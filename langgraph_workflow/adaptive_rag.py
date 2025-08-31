@@ -34,7 +34,7 @@ def get_adaptive_rag_app(api_key: str):
             item_path = os.path.join(INDEX_DIR, item)
             if os.path.isdir(item_path) and os.path.exists(os.path.join(item_path, "index.faiss")):
                 try:
-                    embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001",, google_api_key=api_key)
+                    embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001", google_api_key=api_key)
                     vectorstore = FAISS.load_local(
                         item_path, embeddings, allow_dangerous_deserialization=True
                     )
