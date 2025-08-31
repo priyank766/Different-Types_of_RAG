@@ -200,15 +200,4 @@ with col2:
                     with st.chat_message("ai"):
                         st.markdown(f"Error: {e}")
 
-    # Show retrieved snippets
-    if "context" in st.session_state and st.session_state.context:
-        st.markdown("---")
-        st.subheader("📚 Retrieved Snippets")
-        for i, doc in enumerate(st.session_state.context):
-            with st.expander(f"Snippet {i + 1}"):
-                if hasattr(doc, "page_content"):
-                    st.write(doc.page_content)
-                else:
-                    st.write(doc)
 
-    st.markdown("</div>", unsafe_allow_html=True)
