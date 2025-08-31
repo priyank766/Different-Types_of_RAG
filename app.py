@@ -132,7 +132,7 @@ with col2:
             st.markdown(message.content)
 
     # Handle new input
-    if query := st.chat_input("Ask about your PDFs or RAG concepts..."):
+    if query := st.chat_input("Ask Mentioned PDFs or AIML/LLM concepts..."):
         if not gemini_api_key:
             st.error("Enter your Gemini API key first.")
         else:
