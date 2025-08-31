@@ -101,11 +101,11 @@ with st.sidebar:
             '<div class="rag-tip"><b>Adaptive RAG</b><br>Adapts its retrieval strategy or answer generation based on factors like chat history, user preferences, or the perceived complexity/type of the query. Useful for providing more personalized and context-aware answers.</div>',
             unsafe_allow_html=True,
         )
-    elif rag_type == "Hybrid":
-        st.markdown(
-            '<div class="rag-tip"><b>Hybrid RAG</b><br>Combines adaptiveness, validation, and agentic tool use for complex workflows. It can dynamically switch between strategies, offering a robust and flexible solution for diverse information retrieval tasks.</div>',
-            unsafe_allow_html=True,
-        )
+    # elif rag_type == "Hybrid":
+    #     st.markdown(
+    #         '<div class="rag-tip"><b>Hybrid RAG</b><br>Combines adaptiveness, validation, and agentic tool use for complex workflows. It can dynamically switch between strategies, offering a robust and flexible solution for diverse information retrieval tasks.</div>',
+    #         unsafe_allow_html=True,
+    #     )
 
 
 # --- Main Chat Interface ---
@@ -119,8 +119,8 @@ with col2:
         st.session_state.chat_histories = {
             "Corrective": [],
             "Agentic": [],
-            "Adaptive": [],
-            "Hybrid": [],
+            "Adaptive": []
+            # "Hybrid": [],
         }
     
     # Get current RAG type's messages
@@ -144,8 +144,8 @@ with col2:
                 rag_apps = {
                     "Corrective": get_corrective_rag_app,
                     "Agentic": get_agentic_rag_app,
-                    "Adaptive": get_adaptive_rag_app,
-                    "Hybrid": get_hybrid_rag_app,
+                    "Adaptive": get_adaptive_rag_app
+                    # "Hybrid": get_hybrid_rag_app,
                 }
 
                 if rag_type not in st.session_state or not st.session_state.get(
@@ -160,7 +160,7 @@ with col2:
                 app = st.session_state[rag_type]
 
                 def get_state(query, chat_history, rag_type):
-                    if rag_type in ["Agentic", "Hybrid"]:
+                    if rag_type in ["Agentic"]:
                         return {"messages": [HumanMessage(content=query)]}
                     elif rag_type == "Adaptive":
                         return {"query": query, "chat_history": chat_history}
