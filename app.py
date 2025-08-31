@@ -73,9 +73,10 @@ with st.sidebar:
     )
     if not gemini_api_key:
         st.warning("Please enter your Gemini API key.")
-        os.environ["GOOGLE_API_KEY"] = ""
+        #os.environ["GOOGLE_API_KEY"] = ""
     else:
-        os.environ["GOOGLE_API_KEY"] = gemini_api_key
+        pass
+        #os.environ["GOOGLE_API_KEY"] = gemini_api_key
 
     # Removed PDF selection as RAGs now handle multiple PDFs internally
 
