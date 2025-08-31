@@ -82,7 +82,7 @@ with st.sidebar:
 
     st.subheader("🔍 Choose a RAG Type")
     rag_type = st.selectbox(
-        "RAG Variant", ["Corrective", "Agentic", "Adaptive", "Hybrid"]
+        "RAG Variant", ["Corrective", "Agentic", "Adaptive"]
     )
 
     # Short structured tips
