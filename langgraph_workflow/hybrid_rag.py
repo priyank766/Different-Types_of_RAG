@@ -68,7 +68,7 @@ def get_hybrid_rag_app(api_key: str):
             """Retrieves relevant document chunks for a given query from a specified PDF's knowledge base.
             If pdf_name is 'any', it will query all available PDFs.
             Available PDFs: {available_pdfs}
-            """.format(available_pdfs=list(loaded_vectorstores.keys()))
+            """
 
             retrieved_docs_content = []
             if pdf_name == "any":
