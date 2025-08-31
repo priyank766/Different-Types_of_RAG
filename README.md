@@ -41,7 +41,7 @@ This project implements a Streamlit application that allows users to interact wi
 1.  **Ingest the data:**
     Before running the app for the first time, you need to process the PDFs and create a vector index.
     
-    --data->paths of docs you want to add 
+    data->paths of docs you want to add 
     
     ```bash
     python ingest.py
